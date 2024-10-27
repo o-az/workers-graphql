@@ -28,7 +28,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noPropertyAccessFromIndexSignature": true,
-    "types": ["node", "@cloudflare/workers-types"],
+    "types": ["@cloudflare/workers-types"],
     "baseUrl": "."
   },
   "include": ["src"],
