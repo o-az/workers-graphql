@@ -32,7 +32,38 @@ curl --request GET \
   --url 'https://workers-graphql.evm.workers.dev/graphql?query=%7B+health+%7D'
 ```
 
-Testing response caching
+### Example Subscription
+
+```graphql
+subscription {
+  countdown(from: 3)
+}
+```
+
+```bash
+# GET request
+curl --request GET \
+  --header 'Accept: text/event-stream' \
+  --url 'https://workers-graphql.evm.workers.dev/graphql?query=subscription%7Bcountdown%28from%3A3%29%7D'
+
+# output
+
+# event: next
+# data: {"data":{"countdown":3}}
+
+# event: next
+# data: {"data":{"countdown":2}}
+
+# event: next
+# data: {"data":{"countdown":1}}
+
+# event: next
+# data: {"data":{"countdown":0}}
+
+# event: complete
+```
+
+### Example Response Caching
 
 I manually set the resolver of this query to take 5 seconds for the first request.
 Then subsequent requests will be served from the cache for the next n seconds.
