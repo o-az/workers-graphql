@@ -1,14 +1,38 @@
 # GraphQL Server on Cloudflare Workers
 
+<p align="center">
+  <img src="./.github/images/cover.png" alt="cover" height="275" width="450" />
+</p>
+
+<h1 align="center" style="font-size: 2.75rem; font-weight: 900; color: white;">
+  GraphQL on Cloudflare Workers
+</h1>
+
+
 Fast 💨<br />
 Smooth 🧈<br />
 & globally distributed GraphQL Server 🌐<br />
 deployed at the edge using Cloudflare Workers 🔶
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/o-az/workers-graphql)
 ___
-[GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs) - [Hono](https://hono.dev) - [GraphQL Playground](https://github.com/graphql/graphiql) - [GitHub Actions](https://github.com/features/actions) - Automatic Deployments on push to `main`
+> [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs) - [Hono](https://hono.dev) - [GraphQL Playground](https://github.com/graphql/graphiql) - [GitHub Actions](https://github.com/features/actions) - Automatic Deployments on push to `main`
 ___
 
 ## Usage
+
+### Development
+
+locally:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+in browser:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/o-az/workers-graphql)
 
 ### GraphiQL Playground
 
@@ -68,17 +92,19 @@ curl --request GET \
 `.graphql` schema:
 
 ```sh
-bunx @graphql-inspector/cli \
+pnpm dlx @graphql-inspector/cli \
   introspect https://workers-graphql.evm.workers.dev/graphql \
   --write schema.graphql
+# or npx, or yarn dlx, or bunx
 ```
 
 `.json` schema:
 
 ```sh
-bunx @graphql-inspector/cli \
+pnpm dlx @graphql-inspector/cli \
   introspect https://workers-graphql.evm.workers.dev/graphql \
   --write schema.json
+# or npx, or yarn dlx, or bunx
 ```
 
 ### Example Response Caching

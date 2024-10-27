@@ -2,13 +2,12 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.preferTypeOnlyAutoImports": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "quickfix.biome": "always",
     "source.fixAll.biome": "always",
-    "source.organizeImports.biome": "always"
+    "source.organizeImports.biome": "never"
   },
   "editor.defaultFormatter": "biomejs.biome",
   "[typescript]": {
@@ -26,11 +25,10 @@
   "git.autofetch": true,
   "git.enableCommitSigning": true,
   "search.exclude": {
+    "pnpm-lock.yaml": true,
     "**/node_modules": true
   },
   "files.associations": {
-    "biome.json": "jsonc",
-    "tsconfig.json": "jsonc",
     "settings.json": "jsonc",
     ".dev.vars": "dotenv",
     ".dev.vars.example": "dotenv"

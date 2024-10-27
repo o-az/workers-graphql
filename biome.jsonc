@@ -44,6 +44,7 @@
         "noUselessEmptyExport": "off"
       },
       "correctness": {
+        "noUnusedImports": "off",
         "useHookAtTopLevel": "off",
         "noUnusedVariables": "off",
         "noUndeclaredVariables": "off"

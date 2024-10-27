@@ -74,6 +74,9 @@ export const yoga = createYoga({
     title: 'workers-graphql',
     defaultEditorToolsVisibility: false
   },
+  /**
+   * more plugins here https://the-guild.dev/graphql/envelop/plugins
+   */
   plugins: [
     useResponseCache({
       enabled: _ => true,

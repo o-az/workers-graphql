@@ -19,31 +19,34 @@ jobs:
     timeout-minutes: 3
     runs-on: ['ubuntu-latest']
     steps:
-      - name: 🔑 Checkout
+      - name: '🔑 Checkout'
         uses: actions/checkout@v4
 
-      - name: '🐰 Set up Bun'
-        uses: oven-sh/setup-bun@main
+      - name: '🍂 Setup pnpm'
+        uses: pnpm/action-setup@v4
         with:
-          bun-version: 'latest'
+          version: latest
 
-      - name: '📦 Install'
-        run: bun install --frozen-lockfile
+      - name: '🐢 Setup Node.js'
+        uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+          node-version: 'lts/*'
 
       - name: '🧹 Lint & Format'
-        run: bunx @biomejs/biome check . --reporter='github'
+        run: pnpm dlx @biomejs/biome check . --reporter='github'
 
       - name: '🧪 Typecheck'
-        run: bun typecheck
+        run: pnpm typecheck
 
       - name: '🔧 Build'
-        run: bun run build
+        run: pnpm build
 
       - name: '🔸 Cloudflare Workers - Deploy 🚀'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          bun x wrangler@latest deploy \
+          pnpm dlx wrangler@latest deploy \
             --env='production' \
             --config='wrangler.toml'

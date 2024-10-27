@@ -12,11 +12,20 @@ const app = new Hono<{ Bindings: Env }>()
 app.use(prettyJSON())
 app.use(secureHeaders())
 app.use('*', requestId())
-app.use('*', timeout(6_500))
+app.use('*', timeout(10_500))
 
-app.on(['GET', 'POST'], '/', _ => new Response('zkgm'))
-app.get('/graphiql', context => context.redirect('/graphql'))
+/**
+ * currently base url redirects to `/graphql`
+ * you can change it to whatever you want
+ */
+app.on(['GET', 'POST'], '/', context => {
+  return context.redirect('/graphql')
+})
+
 app.all('/health', _context => new Response('OK', { status: 200 }))
+
+app.get('/graphiql', context => context.redirect('/graphql'))
+app.get('/playground', context => context.redirect('/graphql'))
 
 app.on(['GET', 'POST'], '/graphql', async context =>
   yoga.fetch(context.req.raw, context.env, context.executionCtx)
@@ -37,6 +46,6 @@ app.onError((error, context) => {
   return new Response(`zkgn 🐻🐻 📉📉\n\n${message}`, { status: 404 })
 })
 
-showRoutes(app, { verbose: true, colorize: true })
+showRoutes(app, { colorize: true })
 
 export default app
