@@ -63,29 +63,6 @@ curl --request GET \
 # event: complete
 ```
 
-### Example Response Caching
-
-I manually set the resolver of this query to take 5 seconds for the first request.
-Then subsequent requests will be served from the cache for the next n seconds.
-
-To find out how long the cache is set to, search for `@cacheControl` in [./src/index.ts](./src//index.ts).
-
-```bash
-# first request
-curl --request POST \
-  --url https://workers-graphql.evm.workers.dev/graphql \
-  --header 'content-type: application/json' \
-  --data '{ "query": "{ slow }" }'
-```
-
-```bash
-# subsequent requests
-curl --request POST \
-  --url https://workers-graphql.evm.workers.dev/graphql \
-  --header 'content-type: application/json' \
-  --data '{ "query": "{ slow }" }'
-```
-
 ### Introspection
 
 `.graphql` schema:
@@ -103,3 +80,12 @@ bunx @graphql-inspector/cli \
   introspect https://workers-graphql.evm.workers.dev/graphql \
   --write schema.json
 ```
+
+### Example Response Caching
+
+I manually set the resolver of this query to take 5 seconds for the first request.
+Then subsequent requests will be served from the cache for the next n seconds.
+
+To find out how long the cache is set to, search for `@cacheControl` in [./src/graphql.ts](./src/graphql.ts).
+
+To try this, visit [workers-graphql.evm.workers.dev/graphql?query=%7B+slow+%7D](https://workers-graphql.evm.workers.dev/graphql?query=%7B+slow+%7D) in the browser, run the query, notice the slowness, and then run it again a few times to see the cache in action.
