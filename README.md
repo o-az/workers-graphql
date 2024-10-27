@@ -1,13 +1,11 @@
 # GraphQL Server on Cloudflare Workers
 
-Stack:
-
-- [Cloudflare Workers](https://developers.cloudflare.com/workers)
-- [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs) - GraphQL Server
-- [Hono](https://hono.dev) - Routing, Request/Response, and Error Handling
-- [GraphQL Playground](https://github.com/graphql/graphiql)
-- [GitHub Actions](https://github.com/features/actions) - Automatic Deployments on push to `main`
-
+Fast 💨<br />
+Smooth 🧈<br />
+& globally distributed GraphQL Server 🌐<br />
+deployed at the edge using Cloudflare Workers 🔶
+___
+[GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs) - [Hono](https://hono.dev) - [GraphQL Playground](https://github.com/graphql/graphiql) - [GitHub Actions](https://github.com/features/actions) - Automatic Deployments on push to `main`
 ___
 
 ## Usage
