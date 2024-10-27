@@ -1,0 +1,26 @@
+#: schema https://esm.sh/wrangler/config-schema.json
+# https://developers.cloudflare.com/workers/wrangler/configuration
+
+# start of globally inheritable configuration
+#
+name = "workers-graphql"
+main = "./src/index.ts"
+minify = true
+keep_vars = true
+compatibility_date = "2024-10-14"
+compatibility_flags = [ "nodejs_compat" ]
+#
+# end of globally inheritable configuration
+
+workers_dev = true
+vars = { ENVIRONMENT = "development" }
+
+
+[env.production]
+name = "workers-graphql"
+workers_dev = true
+vars = { ENVIRONMENT = "production" }
+
+# https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+[env.production.observability]
+enabled = true
