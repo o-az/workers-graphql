@@ -22,10 +22,16 @@ jobs:
       - name: '🔑 Checkout'
         uses: actions/checkout@v4
 
+      - name: 'Get pnpm Version'
+        id: pnpm-version
+        run: |
+          PNPM_VERSION=$(cat package.json | jq --raw-output '.packageManager' | awk -F'@' '{print $2}')
+          echo "PNPM_VERSION=$PNPM_VERSION" >> $GITHUB_OUTPUT
+
       - name: '🍂 Setup pnpm'
         uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: ${{ steps.pnpm-version.outputs.PNPM_VERSION }}
 
       - name: '🐢 Setup Node.js'
         uses: actions/setup-node@v3
