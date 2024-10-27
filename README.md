@@ -1,27 +1,22 @@
-# GraphQL Server on Cloudflare Workers
-
 <p align="center">
-  <img src="./.github/images/cover.png" alt="cover" height="275" width="450" />
+  <img src="./.github/images/cover.png" alt="cover" height="300" width="500" />
 </p>
 
 <h1 align="center" style="font-size: 2.75rem; font-weight: 900; color: white;">
   GraphQL on Cloudflare Workers
 </h1>
 
-
-Fast 💨<br />
-Smooth 🧈<br />
-& globally distributed GraphQL Server 🌐<br />
-deployed at the edge using Cloudflare Workers 🔶
+💨 Fast<br />
+🧈 Smooth<br />
+🌐 globally distributed GraphQL Server<br />
+🔶 deployed at the edge using Cloudflare Workers
 
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/o-az/workers-graphql)
 ___
-> [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs) - [Hono](https://hono.dev) - [GraphQL Playground](https://github.com/graphql/graphiql) - [GitHub Actions](https://github.com/features/actions) - Automatic Deployments on push to `main`
+> [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs) - [Hono](https://hono.dev) - [GraphQL Playground](https://github.com/graphql/graphiql) - [Envelop Plugins](https://the-guild.dev/graphql/envelop/plugins) - [GitHub Actions](https://github.com/features/actions) - Auto deploy on push to `main`
 ___
 
-## Usage
-
-### Development
+## Development
 
 locally:
 
@@ -33,6 +28,10 @@ pnpm dev
 in browser:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/o-az/workers-graphql)
+
+## Usage
+
+examples on how to query, subscribe, access playground, introspect, see cache, etc.
 
 ### GraphiQL Playground
 
@@ -114,4 +113,6 @@ Then subsequent requests will be served from the cache for the next n seconds.
 
 To find out how long the cache is set to, search for `@cacheControl` in [./src/graphql.ts](./src/graphql.ts).
 
-To try this, visit [workers-graphql.evm.workers.dev/graphql?query=%7B+slow+%7D](https://workers-graphql.evm.workers.dev/graphql?query=%7B+slow+%7D) in the browser, run the query, notice the slowness, and then run it again a few times to see the cache in action.
+To try this, visit [workers-graphql.evm.workers.dev/graphql?query=%7B+slow+%7D](https://workers-graphql.evm.workers.dev/graphql?query=%7B+slow+%7D) in the browser.
+
+Run the query, notice the slowness, and then run it again a few times to see the cache in action.
