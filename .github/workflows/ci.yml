@@ -39,6 +39,9 @@ jobs:
           cache: 'pnpm'
           node-version: 'lts/*'
 
+      - name: '📦 Install Dependencies'
+        run: pnpm install
+
       - name: '🧹 Lint & Format'
         run: pnpm dlx @biomejs/biome check . --reporter='github'
 
