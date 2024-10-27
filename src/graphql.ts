@@ -72,7 +72,7 @@ export const yoga = createYoga({
     defaultQuery,
     disableTabs: true,
     title: 'workers-graphql',
-    defaultEditorToolsVisibility: false,
+    defaultEditorToolsVisibility: false
   },
   plugins: [
     useResponseCache({
