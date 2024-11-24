@@ -31,8 +31,13 @@
         "noDefaultExport": "off",
         "useBlockStatements": "off",
         "useNamingConvention": "off",
+        "useShorthandArrayType": "off",
         "useSelfClosingElements": "off",
-        "noUnusedTemplateLiteral": "off"
+        "noUnusedTemplateLiteral": "off",
+        "useConsistentArrayType": {
+          "level": "warn",
+          "options": { "syntax": "generic" }
+        }
       },
       "nursery": {
         "all": true,
@@ -52,6 +57,7 @@
       "suspicious": {
         "noConsole": "off",
         "noRedeclare": "off",
+        "noConsoleLog": "off",
         "noExplicitAny": "off",
         "noEmptyInterface": "off"
       }
